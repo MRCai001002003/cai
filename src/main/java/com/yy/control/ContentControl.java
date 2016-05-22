@@ -222,11 +222,6 @@ public class ContentControl {
 	public String toEditor(String uName,String userId,String projectType,HttpServletRequest request){
 		return "/editor";
 	}
-	@RequestMapping(value = "/setJSP", method = RequestMethod.GET)
-	public String setJSP(HttpServletRequest request,Content c) throws Exception {
-		contentService.getContent(request, c);
-		return "/content";
-	}
 	/**
 	 * @Title: getContent_async
 	 * @Description: 获取格式化后的文本文件
