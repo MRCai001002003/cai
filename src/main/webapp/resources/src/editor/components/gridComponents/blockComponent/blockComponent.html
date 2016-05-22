@@ -1,9 +1,0 @@
-<div class="component-container relative container-fluid" ng-repeat="item in content.tree">
-    <div class="row">
-        <div class="col-md-12 grid-box" drag-set-components component="{{item.componentName}}"></div>
-    </div>
-    <div class="editor-btns module-btns text-overflow">
-        <a ng-click="remove($index)" href="javascript:;" class="delete-component"><span class="glyphicon glyphicon-trash"></span></a>
-        <a ng-click=add($index) href="javascript:;" class="insert-component"><span class="glyphicon glyphicon-plus"></span></a>
-    </div>
-</div>
