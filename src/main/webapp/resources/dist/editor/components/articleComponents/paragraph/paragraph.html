@@ -1,7 +1,0 @@
-<div class="component-container relative" ng-repeat="item in content.component">
-    <p class="edit-box" contenteditable="true" cms-editable save-content="save(item,'text')" insert-html="item.text || '这里是内容'"></p>
-    <div class="editor-btns module-btns text-overflow">
-        <a ng-click="remove($index)" href="javascript:;" class="delete-component"><span class="glyphicon glyphicon-trash"></span></a>
-        <a ng-click=add($index) href="javascript:;" class="insert-component"><span class="glyphicon glyphicon-plus"></span></a>
-    </div>
-</div>
