@@ -1,8 +1,0 @@
-<exp for="value in @component">
-    <div>
-       <img class="img-responsive" src="{{@value.imgSrc}}" title="图片">
-    </div>
-    <exp for="child in @value.children">
-        <p>{{@child.text|toHtml}}</p>
-    </exp>
-</exp>
