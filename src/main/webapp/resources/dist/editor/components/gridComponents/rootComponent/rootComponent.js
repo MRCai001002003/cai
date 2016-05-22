@@ -1,0 +1,1 @@
+define(["require"],function(e){return function(t){t.directive("rootComponent",["$compile",function(t){return{scope:!0,restrict:"E",templateUrl:e.toUrl("./rootComponent.html"),replace:!0,controller:["$scope",function(e){e.content=e.$parent.content}]}}])}});

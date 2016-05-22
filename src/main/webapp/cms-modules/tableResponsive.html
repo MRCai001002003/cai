@@ -1,0 +1,29 @@
+<exp for="value in @component">
+    <table class="table">
+        <thead>
+            <tr>
+                <exp for="value in @value.thead">
+                    <th>{{@value.text|toHtml}}</th>
+                </exp>
+            </tr>
+        </thead>
+        <tbody>
+            <exp for="tr in @value.tbody">
+                <tr>
+                    <exp for="td in @tr">
+                        <td>
+                            {{@td.text|toHtml}}
+                        </td>
+                    </exp>
+                </tr>
+            </exp>
+        </tbody>
+        <tfoot>
+            <tr>
+                <exp for="td in @value.tfoot">
+                    <td>{{@td.text|toHtml}}</td>
+                </exp>
+            </tr>
+        </tfoot>
+    </table>
+</exp>

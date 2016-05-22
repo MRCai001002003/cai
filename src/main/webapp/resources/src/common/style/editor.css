@@ -1,0 +1,229 @@
+@charset "UTF-8";
+/* line 2, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+body {
+  background-color: #282828; }
+
+/* line 6, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.relative {
+  position: relative; }
+
+/* line 9, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.logout {
+  text-align: center;
+  line-height: 52px;
+  border-bottom: 1px solid #222;
+  font-size: 16px; }
+
+/* line 15, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.editor-box {
+  padding-top: 20px; }
+
+/* line 18, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.editor-panel {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.3); }
+
+/* line 28, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.left-bar img {
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2; }
+
+/* line 33, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.editor-btns {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 3px 4px;
+  line-height: normal;
+  background-color: rgba(0, 0, 0, 0.05);
+  opacity: .3; }
+  /* line 42, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .editor-btns.module-btns a {
+    color: #d9534f; }
+    /* line 44, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+    .editor-btns.module-btns a:hover {
+      color: #c9312c; }
+  /* line 49, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .editor-btns:hover {
+    opacity: 1; }
+  /* line 52, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .editor-btns a {
+    margin-right: 5px;
+    margin-left: 5px; }
+
+/* line 57, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.component-container {
+  padding-top: 25px; }
+
+/* line 61, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.root-edit-box {
+  min-height: 400px;
+  background-color: #fff;
+  overflow: hidden; }
+  /* line 65, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .root-edit-box.hover {
+    border: 1px solid #ff6600; }
+
+/* line 69, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.edit-box {
+  border: 1px solid #94c6f0;
+  position: relative;
+  min-height: 25px;
+  transition: all 0.5s;
+  min-width: 10px; }
+  /* line 75, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .edit-box:focus {
+    border: 1px solid #66afe9;
+    z-index: 2; }
+  /* line 79, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .edit-box p {
+    word-break: break-all; }
+
+/* line 83, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.grid-box {
+  border: 1px dashed #ddd;
+  position: relative;
+  background-color: #fff;
+  min-height: 25px;
+  transition: all 0.5s;
+  margin-bottom: 15px; }
+  /* line 90, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .grid-box.hover {
+    border-color: #ff6600;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.6);
+    min-height: 150px; }
+  /* line 95, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .grid-box:focus {
+    border: 1px solid #66afe9;
+    z-index: 2; }
+  /* line 99, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .grid-box[disabled] {
+    background-color: #fff; }
+
+/* line 104, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.left-bar {
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  background-color: #535353; }
+  /* line 112, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .left-bar .nav {
+    padding-top: 60px;
+    border: 0; }
+    /* line 115, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+    .left-bar .nav li {
+      position: static;
+      float: none;
+      line-height: normal;
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #444;
+      margin-bottom: 0; }
+      /* line 123, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+      .left-bar .nav li a {
+        padding: 0;
+        border-radius: 0;
+        border: 0;
+        background: none;
+        color: #aaa; }
+      /* line 130, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+      .left-bar .nav li .components-bar {
+        display: none;
+        border-left: 1px solid #444;
+        position: absolute;
+        left: 50px;
+        background-color: rgba(0, 0, 0, 0.75);
+        width: 100px;
+        padding: 60px 15px 15px;
+        top: 0;
+        bottom: 0; }
+      /* line 142, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+      .left-bar .nav li:hover {
+        background-color: #404040; }
+        /* line 144, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+        .left-bar .nav li:hover .components-bar {
+          display: block; }
+      /* line 148, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+      .left-bar .nav li.active {
+        background-color: #404040 !important; }
+        /* line 150, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+        .left-bar .nav li.active .components-bar {
+          display: block !important; }
+
+/*图文指令*/
+/* line 159, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.img-box {
+  max-width: 50%;
+  border: 1px solid #ddd;
+  z-index: 10;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  margin: 4px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.075); }
+  /* line 169, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .img-box > input[type="file"], .img-box .hide-input {
+    width: 100% !important;
+    height: 100%;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    position: absolute; }
+  /* line 177, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .img-box > input[type="file"] {
+    z-index: 10; }
+  /* line 180, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .img-box div {
+    position: relative;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+  /* line 188, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .img-box span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -28px;
+    margin-top: -10px;
+    z-index: 2; }
+  /* line 196, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .img-box.focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.075); }
+
+/* line 201, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.editor-toolbar {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 15px;
+  background-color: #e5e5e5; }
+
+/* line 206, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+.style-selector {
+  list-style: none; }
+  /* line 208, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+  .style-selector li {
+    float: left;
+    width: 20px;
+    height: 19px;
+    border: 1px solid #000;
+    margin-right: -1px;
+    position: relative;
+    cursor: pointer; }
+    /* line 216, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+    .style-selector li.active {
+      transform: scale(1.2);
+      z-index: 2; }
+    /* line 220, E:/workspace/winne/development/程序/CMS/src/main/webapp/resources/src/common/style/editor.scss */
+    .style-selector li:hover {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      z-index: 3; }
+
+/*# sourceMappingURL=editor.css.map */

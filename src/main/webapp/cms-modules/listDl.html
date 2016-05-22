@@ -1,0 +1,8 @@
+<exp for="value in @component">
+    <dl>
+        <dt>{{@value.title|toHtml}}</dt>
+        <exp for="child in @value.children">
+            <dd>{{@child.text|toHtml}}</dd>
+        </exp>
+    </dl>
+</exp>

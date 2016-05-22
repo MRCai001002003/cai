@@ -1,0 +1,7 @@
+<exp for="value in @component">
+    <ol>
+        <exp for="child in @value.children">
+            <li>{{@child.text|toHtml}}</li>
+        </exp>
+    </ol>
+</exp>

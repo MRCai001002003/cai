@@ -1,0 +1,22 @@
+<div class="relative component-container" ng-repeat="item in content.component">
+    <div class="edit-box clearfix">
+      	<div class="pull-right relative img-box" style="right:60px;">
+			<span>点击上传</span>
+			<div>
+				<img class="img-responsive" ng-src="{{item.imgSrc || '../../resources/images/components/picture/img-empty.png'}}" alt="" title="图片">
+			</div>
+			<input type="file" data-fileType="jpg|png|jpeg|gif" ng-upload img-src='item.imgSrc'>
+		</div>
+        <div class="relative" ng-repeat="child in item.children">
+            <p contenteditable="true" save-content="save(child,'text')" insert-html="child.text || '这里是内容'"></p>
+            <div class="editor-btns text-overflow">
+                <a ng-click="remove($index,item.children)" href="javascript:;" class="delete-component"><span class="glyphicon glyphicon-trash"></span></a>
+                <a ng-click="addChild($index,item.children)" href="javascript:;" class="insert-component"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="editor-btns module-btns text-overflow">
+        <a ng-click="remove($index)" href="javascript:;" class="delete-component"><span class="glyphicon glyphicon-trash"></span></a>
+        <a ng-click="add($index)" href="javascript:;" class="insert-component"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<exp for="value in @component">
+    <h3>{{@value.title|toHtml}} <small>{{@value.smallTitle|toHtml}}</small></h3>
+    <exp for="p in @value.children">
+        <p>{{@p.text|toHtml}}</p>
+    </exp>
+</exp>

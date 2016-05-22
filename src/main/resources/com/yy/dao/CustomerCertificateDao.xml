@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yy.dao.CustomerCertificateDao" >
+  <resultMap id="BaseResultMap" type="com.yy.domain.entity.CustomerCertificate" >
+    <id column="CustomerCertificateID" property="customercertificateid" jdbcType="BIGINT" />
+    <result column="CustomerID" property="customerid" jdbcType="BIGINT" />
+    <result column="CertificateType" property="certificatetype" jdbcType="VARCHAR" />
+    <result column="CertificateCode" property="certificatecode" jdbcType="VARCHAR" />
+    <result column="CertificateValidDate" property="certificatevaliddate" jdbcType="DATE" />
+    <result column="CretificationStatue" property="cretificationstatue" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CustomerCertificateID, CustomerID, CertificateType, CertificateCode, CertificateValidDate,
+    CretificationStatue
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from m_customer_certificate
+    where CustomerCertificateID = #{customercertificateid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from m_customer_certificate
+    where CustomerCertificateID = #{customercertificateid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yy.domain.entity.CustomerCertificate" >
+    insert into m_customer_certificate (CustomerCertificateID, CustomerID,
+      CertificateType, CertificateCode, CertificateValidDate,
+      CretificationStatue)
+    values (#{customercertificateid,jdbcType=BIGINT}, #{customerid,jdbcType=BIGINT},
+      #{certificatetype,jdbcType=VARCHAR}, #{certificatecode,jdbcType=VARCHAR}, #{certificatevaliddate,jdbcType=DATE},
+      #{cretificationstatue,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yy.domain.entity.CustomerCertificate" >
+    insert into m_customer_certificate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="customercertificateid != null" >
+        CustomerCertificateID,
+      </if>
+      <if test="customerid != null" >
+        CustomerID,
+      </if>
+      <if test="certificatetype != null" >
+        CertificateType,
+      </if>
+      <if test="certificatecode != null" >
+        CertificateCode,
+      </if>
+      <if test="certificatevaliddate != null" >
+        CertificateValidDate,
+      </if>
+      <if test="cretificationstatue != null" >
+        CretificationStatue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="customercertificateid != null" >
+        #{customercertificateid,jdbcType=BIGINT},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="certificatetype != null" >
+        #{certificatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatecode != null" >
+        #{certificatecode,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatevaliddate != null" >
+        #{certificatevaliddate,jdbcType=DATE},
+      </if>
+      <if test="cretificationstatue != null" >
+        #{cretificationstatue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yy.domain.entity.CustomerCertificate" >
+    update m_customer_certificate
+    <set >
+      <if test="customerid != null" >
+        CustomerID = #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="certificatetype != null" >
+        CertificateType = #{certificatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatecode != null" >
+        CertificateCode = #{certificatecode,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatevaliddate != null" >
+        CertificateValidDate = #{certificatevaliddate,jdbcType=DATE},
+      </if>
+      <if test="cretificationstatue != null" >
+        CretificationStatue = #{cretificationstatue,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CustomerCertificateID = #{customercertificateid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yy.domain.entity.CustomerCertificate" >
+    update m_customer_certificate
+    set CustomerID = #{customerid,jdbcType=BIGINT},
+      CertificateType = #{certificatetype,jdbcType=VARCHAR},
+      CertificateCode = #{certificatecode,jdbcType=VARCHAR},
+      CertificateValidDate = #{certificatevaliddate,jdbcType=DATE},
+      CretificationStatue = #{cretificationstatue,jdbcType=VARCHAR}
+    where CustomerCertificateID = #{customercertificateid,jdbcType=BIGINT}
+  </update>
+</mapper>

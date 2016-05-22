@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yy.dao.ContentDao" >
+  <resultMap id="BaseResultMap" type="com.yy.domain.entity.Content" >
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="photo_url" property="photoUrl" jdbcType="VARCHAR" />
+    <result column="create_user_id" property="createUserId" jdbcType="VARCHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_user_id" property="updateUserId" jdbcType="VARCHAR" />
+    <result column="update_user_name" property="updateUserName" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="publish_user_id" property="publishUserId" jdbcType="VARCHAR" />
+    <result column="publish_user_name" property="publishUserName" jdbcType="VARCHAR" />
+    <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
+    <result column="top" property="top" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yy.domain.entity.Content" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <resultMap id="BaseResultMapExtra" type="com.yy.domain.entity.ContentExtra" extends="ResultMapWithBLOBs" >
+  </resultMap>
+  <sql id="Base_Column_List">
+  	id, type, source, title, photo_url, create_user_id, create_user_name, create_time, update_user_id, update_user_name, update_time, publish_user_id, publish_user_name, publish_time, top, state, is_delete
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+
+  <insert id="insert" parameterType="com.yy.domain.entity.Content" >
+    insert into m_content (id, type, source, title, photo_url, create_user_id, create_user_name, create_time,
+      update_user_id, update_user_name, update_time, publish_user_id, publish_user_name
+      publish_time,top, state, is_delete, content
+      )
+    values (#{id,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+      #{photoUrl,jdbcType=VARCHAR}, #{createUserId,jdbcType=VARCHAR}, #{createUserName,jdbcType=VARCHAR}, #{createTime,jdbcType=DECIMAL},
+      #{updateUserId,jdbcType=VARCHAR}, #{updateUserName,jdbcType=VARCHAR}, #{updateTime,jdbcType=DECIMAL},
+      #{publishUserId,jdbcType=VARCHAR}, #{publishUserName,jdbcType=VARCHAR}, #{publishTime,jdbcType=DECIMAL},
+      #{top,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.yy.domain.entity.Content" >
+    insert into m_content
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="photoUrl != null" >
+        photo_url,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="updateUserName != null" >
+        update_user_name,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="publishUserId != null" >
+        publish_user_id,
+      </if>
+      <if test="publishUserName != null" >
+        publish_user_name,
+      </if>
+      <if test="publishTime != null" >
+        publish_time,
+      </if>
+      <if test="top != null" >
+        top,
+      </if>
+       <if test="state != null" >
+        state,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="photoUrl != null" >
+        #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=DECIMAL},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null" >
+        #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=DECIMAL},
+      </if>
+      <if test="publishUserId != null" >
+        #{publishUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="publishUserName != null" >
+        #{publishUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=DECIMAL},
+      </if>
+      <if test="top != null" >
+        #{top,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.yy.domain.entity.Content" >
+    update m_content
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="photoUrl != null" >
+        photo_url = #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=DECIMAL},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null" >
+        update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=DECIMAL},
+      </if>
+      <if test="publishUserId != null" >
+        publish_user_id = #{publishUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="publishUserName != null" >
+        publish_user_name = #{publishUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        publish_time = #{publishTime,jdbcType=DECIMAL},
+      </if>
+      <if test="top != null" >
+        top = #{top,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yy.domain.entity.Content" >
+    update m_content
+    set type = #{type,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      photo_url = #{photoUrl,jdbcType=VARCHAR},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DECIMAL},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DECIMAL},
+      publish_user_id = #{publishUserId,jdbcType=VARCHAR},
+      publish_user_name = #{publishUserName,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=DECIMAL},
+      top = #{top,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMapExtra" parameterType="java.lang.String">
+  	select
+    <include refid="Base_Column_List" />,
+    <include refid="Blob_Column_List" />
+    from m_content
+    where id = #{id,jdbcType=VARCHAR}
+    and (is_delete != 1 OR ISNULL(is_delete))
+  </select>
+
+  <select id="selectContentList" resultMap="BaseResultMap" >
+  	select
+    <include refid="Base_Column_List" />,
+    <include refid="Blob_Column_List" />
+    from m_content
+    where is_delete != 1 OR ISNULL(is_delete)
+  </select>
+
+  <select id="selectContentListByState" resultMap="BaseResultMap">
+  	select
+    <include refid="Base_Column_List" />,
+    <include refid="Blob_Column_List" />
+    from m_content
+    where is_delete = 0
+    <if test="state != null">
+    	and state = #{state}
+    </if>
+  </select>
+
+  <select id="selectContentListWithPage" resultMap="BaseResultMapExtra" >
+  	select
+    <include refid="Base_Column_List" />,
+    <include refid="Blob_Column_List" />
+    from m_content
+    where is_delete = 0
+    <if test="state != null">
+    	and state = #{state}
+    </if>
+    <if test="type != null and type != ''">
+    	and type = #{type}
+    </if>
+    order by update_time desc
+    <if test="startIndex!=null and pageSize!=null">limit ${startIndex},${pageSize}</if>
+  </select>
+
+  <select id="selectContentListCountWithPage" resultType="int">
+  	select count(*) from m_content
+  	where is_delete = 0
+  	<if test="state != null">
+    	and state = #{state}
+    </if>
+    <if test="type != null and type != ''">
+    	and type = #{type}
+    </if>
+  </select>
+
+    <select id="queryContentIndexList" resultMap="BaseResultMapExtra">
+  	SELECT
+	<include refid="Base_Column_List" />,
+	<include refid="Blob_Column_List" />
+  	FROM m_content
+  	WHERE is_delete = 0
+  	AND state = '1'
+  	ORDER BY top DESC, create_time DESC
+  	LIMIT 0,10
+  </select>
+</mapper>

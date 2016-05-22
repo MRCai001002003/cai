@@ -1,0 +1,4 @@
+<div ng-repeat="item in content.component" content="item">
+    <h4>{{item.title|toHtml}} <small>{{item.smallTitle|toHtml}}</small></h4>
+    <p ng-repeat="children in item.children">{{children.text|toHtml}}</p>
+</div>

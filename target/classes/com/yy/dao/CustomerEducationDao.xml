@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yy.dao.CustomerEducationDao" >
+  <resultMap id="BaseResultMap" type="com.yy.domain.entity.CustomerEducation" >
+    <id column="CustomerEducationID" property="customereducationid" jdbcType="BIGINT" />
+    <result column="CustomerID" property="customerid" jdbcType="BIGINT" />
+    <result column="SchoolName" property="schoolname" jdbcType="VARCHAR" />
+    <result column="IsKeySchool" property="iskeyschool" jdbcType="BIT" />
+    <result column="Education" property="education" jdbcType="VARCHAR" />
+    <result column="Degree" property="degree" jdbcType="CHAR" />
+    <result column="Major" property="major" jdbcType="VARCHAR" />
+    <result column="IsFullTime" property="isfulltime" jdbcType="BIT" />
+    <result column="HonorCertification" property="honorcertification" jdbcType="BIGINT" />
+    <result column="GradeationDate" property="gradeationdate" jdbcType="DATE" />
+    <result column="EnterDate" property="enterdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CustomerEducationID, CustomerID, SchoolName, IsKeySchool, Education, Degree, Major,
+    IsFullTime, HonorCertification, GradeationDate, EnterDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from m_customer_education
+    where CustomerEducationID = #{customereducationid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from m_customer_education
+    where CustomerEducationID = #{customereducationid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yy.domain.entity.CustomerEducation" >
+    insert into m_customer_education (CustomerEducationID, CustomerID, SchoolName,
+      IsKeySchool, Education, Degree,
+      Major, IsFullTime, HonorCertification,
+      GradeationDate, EnterDate)
+    values (#{customereducationid,jdbcType=BIGINT}, #{customerid,jdbcType=BIGINT}, #{schoolname,jdbcType=VARCHAR},
+      #{iskeyschool,jdbcType=BIT}, #{education,jdbcType=VARCHAR}, #{degree,jdbcType=CHAR},
+      #{major,jdbcType=VARCHAR}, #{isfulltime,jdbcType=BIT}, #{honorcertification,jdbcType=BIGINT},
+      #{gradeationdate,jdbcType=DATE}, #{enterdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yy.domain.entity.CustomerEducation" >
+    insert into m_customer_education
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="customereducationid != null" >
+        CustomerEducationID,
+      </if>
+      <if test="customerid != null" >
+        CustomerID,
+      </if>
+      <if test="schoolname != null" >
+        SchoolName,
+      </if>
+      <if test="iskeyschool != null" >
+        IsKeySchool,
+      </if>
+      <if test="education != null" >
+        Education,
+      </if>
+      <if test="degree != null" >
+        Degree,
+      </if>
+      <if test="major != null" >
+        Major,
+      </if>
+      <if test="isfulltime != null" >
+        IsFullTime,
+      </if>
+      <if test="honorcertification != null" >
+        HonorCertification,
+      </if>
+      <if test="gradeationdate != null" >
+        GradeationDate,
+      </if>
+      <if test="enterdate != null" >
+        EnterDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="customereducationid != null" >
+        #{customereducationid,jdbcType=BIGINT},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="schoolname != null" >
+        #{schoolname,jdbcType=VARCHAR},
+      </if>
+      <if test="iskeyschool != null" >
+        #{iskeyschool,jdbcType=BIT},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        #{degree,jdbcType=CHAR},
+      </if>
+      <if test="major != null" >
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="isfulltime != null" >
+        #{isfulltime,jdbcType=BIT},
+      </if>
+      <if test="honorcertification != null" >
+        #{honorcertification,jdbcType=BIGINT},
+      </if>
+      <if test="gradeationdate != null" >
+        #{gradeationdate,jdbcType=DATE},
+      </if>
+      <if test="enterdate != null" >
+        #{enterdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yy.domain.entity.CustomerEducation" >
+    update m_customer_education
+    <set >
+      <if test="customerid != null" >
+        CustomerID = #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="schoolname != null" >
+        SchoolName = #{schoolname,jdbcType=VARCHAR},
+      </if>
+      <if test="iskeyschool != null" >
+        IsKeySchool = #{iskeyschool,jdbcType=BIT},
+      </if>
+      <if test="education != null" >
+        Education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        Degree = #{degree,jdbcType=CHAR},
+      </if>
+      <if test="major != null" >
+        Major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="isfulltime != null" >
+        IsFullTime = #{isfulltime,jdbcType=BIT},
+      </if>
+      <if test="honorcertification != null" >
+        HonorCertification = #{honorcertification,jdbcType=BIGINT},
+      </if>
+      <if test="gradeationdate != null" >
+        GradeationDate = #{gradeationdate,jdbcType=DATE},
+      </if>
+      <if test="enterdate != null" >
+        EnterDate = #{enterdate,jdbcType=DATE},
+      </if>
+    </set>
+    where CustomerEducationID = #{customereducationid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yy.domain.entity.CustomerEducation" >
+    update m_customer_education
+    set CustomerID = #{customerid,jdbcType=BIGINT},
+      SchoolName = #{schoolname,jdbcType=VARCHAR},
+      IsKeySchool = #{iskeyschool,jdbcType=BIT},
+      Education = #{education,jdbcType=VARCHAR},
+      Degree = #{degree,jdbcType=CHAR},
+      Major = #{major,jdbcType=VARCHAR},
+      IsFullTime = #{isfulltime,jdbcType=BIT},
+      HonorCertification = #{honorcertification,jdbcType=BIGINT},
+      GradeationDate = #{gradeationdate,jdbcType=DATE},
+      EnterDate = #{enterdate,jdbcType=DATE}
+    where CustomerEducationID = #{customereducationid,jdbcType=BIGINT}
+  </update>
+</mapper>

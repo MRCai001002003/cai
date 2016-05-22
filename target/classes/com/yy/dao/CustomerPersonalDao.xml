@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yy.dao.CustomerPersonalDao" >
+  <resultMap id="BaseResultMap" type="com.yy.domain.entity.CustomerPersonal" >
+    <result column="CustomerID" property="customerid" jdbcType="BIGINT" />
+    <result column="Sex" property="sex" jdbcType="CHAR" />
+    <result column="Birthdate" property="birthdate" jdbcType="DATE" />
+    <result column="National" property="national" jdbcType="VARCHAR" />
+    <result column="MarriageType" property="marriagetype" jdbcType="VARCHAR" />
+    <result column="PoliticsStatus" property="politicsstatus" jdbcType="VARCHAR" />
+    <result column="DwellingCondition" property="dwellingcondition" jdbcType="VARCHAR" />
+    <result column="ResidentialAddress" property="residentialaddress" jdbcType="VARCHAR" />
+    <result column="ResidentialPostCode" property="residentialpostcode" jdbcType="CHAR" />
+    <result column="HukouAddress" property="hukouaddress" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.yy.domain.entity.CustomerPersonal" >
+    insert into m_customer_personal (CustomerID, Sex, Birthdate,
+      National, MarriageType, PoliticsStatus,
+      DwellingCondition, ResidentialAddress,
+      ResidentialPostCode, HukouAddress)
+    values (#{customerid,jdbcType=BIGINT}, #{sex,jdbcType=CHAR}, #{birthdate,jdbcType=DATE},
+      #{national,jdbcType=VARCHAR}, #{marriagetype,jdbcType=VARCHAR}, #{politicsstatus,jdbcType=VARCHAR},
+      #{dwellingcondition,jdbcType=VARCHAR}, #{residentialaddress,jdbcType=VARCHAR},
+      #{residentialpostcode,jdbcType=CHAR}, #{hukouaddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yy.domain.entity.CustomerPersonal" >
+    insert into m_customer_personal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="customerid != null" >
+        CustomerID,
+      </if>
+      <if test="sex != null" >
+        Sex,
+      </if>
+      <if test="birthdate != null" >
+        Birthdate,
+      </if>
+      <if test="national != null" >
+        National,
+      </if>
+      <if test="marriagetype != null" >
+        MarriageType,
+      </if>
+      <if test="politicsstatus != null" >
+        PoliticsStatus,
+      </if>
+      <if test="dwellingcondition != null" >
+        DwellingCondition,
+      </if>
+      <if test="residentialaddress != null" >
+        ResidentialAddress,
+      </if>
+      <if test="residentialpostcode != null" >
+        ResidentialPostCode,
+      </if>
+      <if test="hukouaddress != null" >
+        HukouAddress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="customerid != null" >
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="birthdate != null" >
+        #{birthdate,jdbcType=DATE},
+      </if>
+      <if test="national != null" >
+        #{national,jdbcType=VARCHAR},
+      </if>
+      <if test="marriagetype != null" >
+        #{marriagetype,jdbcType=VARCHAR},
+      </if>
+      <if test="politicsstatus != null" >
+        #{politicsstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dwellingcondition != null" >
+        #{dwellingcondition,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialaddress != null" >
+        #{residentialaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialpostcode != null" >
+        #{residentialpostcode,jdbcType=CHAR},
+      </if>
+      <if test="hukouaddress != null" >
+        #{hukouaddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

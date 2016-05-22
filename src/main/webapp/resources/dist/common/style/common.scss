@@ -1,0 +1,218 @@
+@charset "UTF-8";
+body {
+    font-family: '微软雅黑';
+	overflow-y: scroll;
+}
+.ng-hide{
+	display: none !important;
+}
+.font-12 {
+    font-size: 12px;
+}
+.font-line {
+    white-space: nowrap;
+}
+.hidden-font {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.left-nav {
+    i.glyphicon {
+        margin-right: 20px;
+    }
+}
+//.logo {
+//    float: left;
+//    height: 50px;
+//    padding: 5px 0;
+//    margin-right: 10px;
+//    img {
+//        height: 100%;
+//    }
+//}
+.clear-dis {
+    padding: 0!important;
+    margin: 0!important;
+}
+.categorie-table label.error {
+    position: absolute;
+    white-space: nowrap;
+    left: 33px;
+    top: 100%;
+}
+.product-icon-list {
+    padding: 0!important;
+    margin: 0!important;
+    div {
+        padding: 0!important;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        cursor: pointer;
+        transition: all .1s;
+        &:after {
+            transition: all .1s;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+        &:hover {
+            position: relative;
+            span {
+                position: relative;
+                z-index: 3;
+            }
+            &:after {
+                transform: scale3d(2, 2, 1);
+                background-color: #333;
+            }
+            font-size:2em;
+            color:#86eb2f;
+        }
+    }
+}
+@font-face {
+    font-family: 'product icon';
+    src: url('../fonts/productIcon.eot?-snbx8x');
+    src: url('../fonts/productIcon.eot?#iefix-snbx8x') format('embedded-opentype'), url('../fonts/productIcon.ttf?-snbx8x') format('truetype'), url('../fonts/iconfont.woff?-snbx8x') format('woff'), url('../fonts/productIcon.svg?-snbx8x#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.product-icon {
+    &:before {
+        font-family: 'product icon'
+    }
+    ;
+    &.product-icon-normal:before {
+        content: "请选择分类图标"
+    }
+    &.product-icon-ZhongZi:before {
+        content: "\21"
+    }
+    &.product-icon-NongYao:before {
+        content: "\22"
+    }
+    &.product-icon-HuaFei:before {
+        content: "\23"
+    }
+    &.product-icon-SuLiao:before {
+        content: "\24"
+    }
+    &.product-icon-NongJi:before {
+        content: "\25"
+    }
+    &.product-icon-FuWu:before {
+        content: "\26"
+    }
+}
+.login-box {
+    width: 400px;
+    margin: 100px auto 0;
+}
+.uploadStyle {
+    position: relative;
+    padding-left: 0;
+    input[type="file"], input[type="text"] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    span {
+        text-align: center;
+    }
+}
+.group-label-error {
+    label {
+        position: absolute;
+        left: 0;
+        top: 34px;
+    }
+}
+.role-tree{
+	.checkbox{
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-bottom: 10px;
+	}
+	ul{
+		ul{
+			position: relative;
+			&:before{
+				content: "";
+				position: absolute;
+				left: 6px;
+				top: -10px;
+				height: 20px;
+				border-left: 1px dashed #ccc;
+			}
+		}
+		list-style: none;
+		li{
+			position: relative;
+			padding-left: 60px;
+			li:before{
+				content: "";
+				position: absolute;
+				left: 6px;
+				top: 10px;
+				height: 100%;
+				border-left: 1px dashed #ccc;
+			}
+			li:last-child:before{
+				border: none;
+			}
+			li:after{
+				content: "";
+				position: absolute;
+				left: 6px;
+				width: 48px;
+				border-top: 1px dashed #ccc;
+				top: 10px;
+			}
+		}
+	}
+}
+
+.img-slider{
+	background-color: rgba(0,0,0,.3);
+	opacity: 0;
+	position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+	-webkit-transition: all .5s;
+	transition: all .5s;
+	.img-slider-modal{
+		-webkit-transition: all .5s;
+		transition: all .5s;
+		-webkit-transform: scale3d(0,0,1);
+		transform: scale3d(0,0,1);
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		overflow: hidden;
+		width: 0;
+		height: 0;
+		margin-left: 0;
+		margin-top: 0;
+	};
+	&-show{
+		opacity: 1;
+		.img-slider-modal{
+			-webkit-transform: scale3d(1,1,1);
+			transform: scale3d(1,1,1);
+		}
+	}
+}
+.group{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}

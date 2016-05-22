@@ -1,0 +1,17 @@
+<div class="relative component-container" ng-repeat="(index, item) in content.component">
+    <div class="clearfix">
+        <h4 class="edit-box pull-left" contenteditable="true" save-content="save(item,'title')" insert-html="item.title || '这里是大标题'"></h4>
+        <h4 class="edit-box pull-left"><small contenteditable="true" save-content="save(item,'smallTitle')"insert-html="item.smallTitle || '这里是小标题'"></small></h4>
+    </div>
+    <div class="relative" ng-repeat="child in item.children">
+        <p class="edit-box" contenteditable="true" cms-editable save-content="save(child,'text')" insert-html="child.text || '这里是内容'"></p>
+        <div class="editor-btns text-overflow">
+            <a ng-click="removeChild($index,item.children, index)" href="javascript:;" class="delete-component"><span class="glyphicon glyphicon-trash"></span></a>
+            <a ng-click="addChild($index,item.children)" href="javascript:;" class="insert-component"><span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+    </div>
+    <div class="editor-btns module-btns text-overflow">
+        <a ng-click="remove(index)" href="javascript:;" class="delete-component"><span class="glyphicon glyphicon-trash"></span></a>
+        <a ng-click="add(index)" href="javascript:;" class="insert-component"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
+</div>
