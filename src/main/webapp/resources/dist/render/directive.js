@@ -1,1 +1,0 @@
-define([],function(){return function(e){e.directive("component",["$compile",function(e){return{restrict:"A",link:function(t,n,r){var i=(r.component||"").replace(/([A-Z])/g,"-$1");if(!i)return;var s=e("<"+i+"></"+i+">")(t);n.append(s)}}}])}});
