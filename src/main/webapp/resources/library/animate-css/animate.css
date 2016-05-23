@@ -3274,9 +3274,11 @@ Copyright (c) 2015 Daniel Eden
   position:relative;
 }
 .animated.ng-enter,.animated.ng-leave{
-  position: absolute;
-  top: 0;
-  left:15px;
-  right:15px;
+position: absolute;
+	top: 0;
+/*
+	left: 15px;
+	right: 15px;
+*/
   z-index:10;
 }

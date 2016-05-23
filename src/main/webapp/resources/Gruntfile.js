@@ -32,6 +32,16 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        cssmin: {
+            build: {
+                files: [{
+                    expand: true,
+                    cwd: './src/common/',
+                    src: '**/*.css',
+                    dest: './dist/common/'
+                }]
+            }
+        },
         copy: {
             build: {
                 files: [{
@@ -46,76 +56,54 @@ module.exports = function(grunt) {
             compile: {
                 options: {
                     paths: {
-                        'jquery': 'empty:',
                         'angular': 'empty:',
-                        'ui.tree': 'empty:',
                         'ui.router': 'empty:',
                         'angular.animate': 'empty:',
-                        'bootstrap': 'empty:',
-                        'jquery.validate': 'empty:'
+                        'angular.sanitize': 'empty:',
+                        'angular.validate': 'empty:',
+                        'iScroll': 'empty:',
+                        'hammer': 'empty:',
+                        'wxSDK': 'empty:',
+						'd3':'empty:'
                     },
                     shim: {
                         'angular': {
-                            deps: ['jquery'],
                             exports: 'angular'
                         },
+                        'iScroll': {
+                            exports: 'IScroll'
+                        },
+                        'hammer': {
+                            exports: 'Hammer'
+                        },
                         'ui.router': ['angular'],
-                        'ui.tree': ['angular'],
                         'angular.animate': ['angular'],
-                        'bootstrap': ['jquery'],
-                        'angular.validate': ['angular'],
-                        'jquery.validate': ['jquery']
+                        'angular.sanitize': ['angular'],
+                        'angular.validate': ['angular']
                     },
                     baseUrl: './',
                     dir: 'dist',
                     appDir: 'src',
                     keepBuildDir: true,
                     modules: [{
-                        name: 'editor'
-                    },{
-                        name: 'render'
+                        name: 'app'
                     }],
                     fileExclusionRegExp: /^library/
                 }
-            },
-            build: {
-                options: {
-                    paths: {
-                        'jquery': 'library/jquery/dist/jquery.min',
-                        'angular': 'library/angular/angular.min',
-                        'ui.router': 'library/angular-ui-router/release/angular-ui-router.min',
-                        'angular.animate': 'library/angular-animate/angular-animate.min',
-                        'ui.tree': 'library/angular-ui-tree/dist/angular-ui-tree.min',
-                        'bootstrap': 'library/bootstrap/dist/js/bootstrap.min',
-                        'jquery.validate': 'library/jquery-validation/dist/jquery.validate.min'
-                    },
-                    shim: {
-                        'angular': {
-                            deps: ['jquery'],
-                            exports: 'angular'
-                        },
-                        'ui.router': ['angular'],
-                        'ui.tree': ['angular'],
-                        'angular.animate': ['angular'],
-                        'bootstrap': ['jquery'],
-                        'angular.validate': ['angular'],
-                        'jquery.validate': ['jquery']
-                    },
-                    onBuildWrite: function(moduleName, path, contents) {
-                        return contents.replace(/src\//g, 'dist/');
-                    },
-                    keepBuildDir: true,
-                    include: ['src/app'],
-                    out: 'dist/app.js'
-                }
             }
-        }
+        },
+		clean:{
+			css:['./dist/**/*.scss','./dist/**/*.map']
+		}
     });
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
 
-    grunt.registerTask('default', ['requirejs:compile'])
+
+    grunt.registerTask('default', ['requirejs:compile', 'htmlmin:tpl', 'cssmin:build', 'clean:css'])
     grunt.registerTask('build', ['requirejs:build', 'htmlmin'])
 }
