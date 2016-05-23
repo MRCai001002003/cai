@@ -1,4 +1,11 @@
 (function(data, textModules) {
+
+	//^([\u4e00-\u9fa5]|[^\u4e00-\u9fa5]{2}){10}$/;
+
+	//^([\u4e00-\u9fa5]{1,10}|[^\u4e00-\u9fa5]{1,20}|[\u4e00-\u9fa5].{2})$/
+
+
+
     'use strict';
     data = JSON.parse(data);
     textModules = JSON.parse(textModules);

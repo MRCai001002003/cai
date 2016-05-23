@@ -2,7 +2,6 @@ define(function(require) {
     var IScroll = require('iScroll');
     var Hammer = require('hammer');
     var angular = require('angular');
-    var d3 = require('d3');
     var baseUrl = require('../common/js/baseUrl/baseUrl');
     return function(app) {
         app.directive('tap', function() {

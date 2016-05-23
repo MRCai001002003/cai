@@ -1,6 +1,6 @@
 define(function() {
     return function(app) {
-        app.controller('homeControl', ['$scope', '$http',
+        app.controller('registerInfoControl', ['$scope', '$http',
             function($scope, $http) {
             }
         ])

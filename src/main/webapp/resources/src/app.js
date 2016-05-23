@@ -12,7 +12,7 @@ define(function(require) {
     app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
         function($stateProvider, $urlRouterProvider, $httpProvider) {
             //未登录拦截
-            $httpProvider.interceptors.push('logoutInterceptor');
+            //$httpProvider.interceptors.push('logoutInterceptor');
 
 
             //配置路由
@@ -22,6 +22,18 @@ define(function(require) {
                 url: '/home',
                 templateUrl: require.toUrl('./pages/home/home.html'),
                 controller: 'homeControl'
+            }).state('register', {
+                url: '/register',
+                templateUrl: require.toUrl('./pages/register/register.html'),
+                controller: 'registerControl'
+            }).state('registerInfo', {
+                url: '/registerInfo',
+                templateUrl: require.toUrl('./pages/registerInfo/registerInfo.html'),
+                controller: 'registerInfoControl'
+            }).state('registed', {
+                url: '/registed',
+                templateUrl: require.toUrl('./pages/registed/registed.html'),
+                controller: 'registedControl'
             })
         }
     ]);
@@ -34,6 +46,10 @@ define(function(require) {
     //
     //    //加载控制器
 
+    require('./pages/home/home')(app);
+    require('./pages/register/register')(app);
+    require('./pages/registerInfo/registerInfo')(app);
+    require('./pages/registed/registed')(app);
 
     //启动应用
     angular.element(document).ready(function() {
@@ -89,157 +105,33 @@ define(function(require) {
 
 
         var ele = document.getElementById('page-wrap');
-        app.run(['$rootScope', '$location', '$state', 'inviteCode',
+        app.run(['$rootScope', '$location', '$state',
 
-            function($rootScope, $location, $state, inviteCode) {
+            function($rootScope, $location, $state) {
                 $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-                    if (!inviteCode.get()) {
-                        inviteCode.set($location.search().inviteCode || '');
-                    }
                     var animateObj = {
                         home: {
-                            query: 'zoomOut slideInRight',
-                            attentionInfo: 'zoomOut zoomIn',
-                            userCenter: 'zoomOut zoomIn',
-                            companyHome: 'slideInRight slideOutLeft',
-                            article: 'slideInRight slideOutLeft',
-                            personalQuery: 'slideInRight slideOutLeft'
-                        },
-                        personalQuery: {
-                            home: 'slideInLeft slideOutRight',
-                            personalInfo: 'slideInRight slideOutLeft'
-                        },
-                        article: {
-                            home: 'slideOutRight slideInLeft',
-                            companyHome: 'slideOutLeft slideInRight'
-                        },
-                        attentionInfo: {
-                            home: 'zoomOut zoomIn',
-                            userCenter: 'zoomOut zoomIn',
-                            companyHome: 'slideInRight slideOutLeft'
-                        },
-                        userCenter: {
-                            home: 'zoomOut zoomIn',
-                            attentionInfo: 'zoomOut zoomIn',
-                            changePassword: 'slideOutLeft slideInRight',
-                            appeal: 'slideOutLeft slideInRight',
-                            appShare: 'slideOutLeft slideInRight',
-                            mianZeShengMin: 'slideOutLeft slideInRight'
-                        },
-                        changePassword: {
-                            userCenter: 'slideOutRight slideInLeft'
-                        },
-                        appeal: {
-                            userCenter: 'slideOutRight slideInLeft'
-                        },
-                        appShare: {
-                            userCenter: 'slideOutRight slideInLeft'
-                        },
-                        mianZeShengMin: {
-                            userCenter: 'slideOutRight slideInLeft'
-                        },
-                        query: {
-                            home: 'slideOutRight zoomIn',
-                            companyHome: 'slideInRight slideOutLeft'
-                        },
-                        personalInfo: {
-                            personalQuery: 'slideOutRight slideInLeft'
-                        },
-                        companyHome: {
-                            query: 'slideOutRight slideInLeft',
-                            recordsTransferInfo: 'slideOutLeft slideInRight',
-                            negativeInfo: 'slideOutLeft slideInRight',
-                            lawsuit: 'slideOutLeft slideInRight',
-                            seeminglyRelevance: 'slideOutLeft slideInRight',
-                            companyDetail: 'slideOutLeft slideInRight',
-                            shareholderInfo: 'slideOutLeft slideInRight',
-                            patent: 'slideOutLeft slideInRight',
-                            copyright: 'slideOutLeft slideInRight',
-                            product: 'slideOutLeft slideInRight',
-                            leaderInfo: 'slideOutLeft slideInRight',
-                            embranchment: 'slideOutLeft slideInRight',
-                            recruit: 'slideOutLeft slideInRight',
-                            companyComment: 'zoomOut fadeInUp',
-                            attentionInfo: 'slideOutRight slideInLeft',
-                            creditReport: 'zoomOut fadeInUp',
-                            surroundRent: 'slideOutLeft slideInRight',
-                            corpFamily: 'slideOutLeft slideInRight',
-                            home: 'slideOutRight slideInLeft',
-                            article: 'slideOutRight slideInLeft'
-                        },
-                        patent: {
-                            companyHome: 'slideOutRight slideInLeft',
-                            patentDetail: 'slideOutLeft slideInRight'
-                        },
-                        patentDetail: {
-                            patent: 'slideOutRight slideInLeft'
-                        },
-                        copyright: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        product: {
-                            companyHome: 'slideOutRight slideInLeft',
-                            productDetail: 'slideOutLeft slideInRight',
-                        },
-                        productDetail: {
-                            product: 'slideOutRight slideInLeft'
-                        },
-                        recordsTransferInfo: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        negativeInfo: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        lawsuit: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        seeminglyRelevance: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        companyDetail: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        shareholderInfo: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        leaderInfo: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        embranchment: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        recruit: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        companyComment: {
-                            companyHome: 'fadeOutDown zoomIn'
+                            register: 'slideInRight slideOutLeft'
                         },
                         register: {
-                            home: 'fadeOutDown zoomIn'
+                            home: 'slideInLeft slideOutRight',
+                            registerInfo: 'slideInRight slideOutLeft'
                         },
-                        creditReport: {
-                            companyHome: 'fadeOutDown zoomIn'
+                        registerInfo: {
+                            register: 'slideInLeft slideOutRight',
+                            registed: 'slideInRight slideOutLeft',
                         },
-                        surroundRent: {
-                            companyHome: 'slideOutRight slideInLeft'
-                        },
-                        corpFamily: {
-                            companyHome: 'slideOutRight slideInLeft'
+                        registed: {
+                            registerInfo: 'slideInLeft slideOutRight'
                         }
                     };
-                    if (fromState.name === 'login') {
-                        animateClass = 'zoomOut fadeInUp';
-                    } else if (toState.name === 'login') {
-                        animateClass = 'fadeOut zoomIn';
-                    } else {
-                        var animateClass = animateObj[fromState.name] || '';
-                        animateClass = animateClass[toState.name] || '';
-                    }
+                    var animateClass = animateObj[fromState.name] || '';
+                    animateClass = animateClass[toState.name] || '';
                     ele.className = 'page-wrap animated ui-view-container ' + animateClass;
                 });
             }
         ]);
-		//console.log(app);
+        //console.log(app);
         angular.bootstrap(document, ['app']);
     })
 })

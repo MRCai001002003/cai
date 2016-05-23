@@ -19,7 +19,6 @@ html{
 body{
     height: 100%;
     min-height: 100%;
-	background-color: $body-bg;
     .page-wrap{
         width: 100%;
         height: 100%;
@@ -35,209 +34,7 @@ body{
 		}
     }
 }
-a{
-	&:active, &:hover, &:focus{
-		text-decoration: none;
-		color: inherit;
-		outline: none;
-	}
-}
-.relative{
-	position: relative;
-}
-.text-default{
-	color: $gray-dark;
-}
-.text-gray{
-	color: $font-color-gray !important;
-}
-.text-blue{
-	color: $blue !important;
-}
-.text-red{
-	color: $red !important;
-}
-.text-orange{
-	color: $orange !important;
-}
-.text-green{
-	color: $green !important;
-}
-.text-white{
-	color: #fff;
-}
-.text-overflow{
-	@include text-overflow;
-}
-.bg-white{
-	background-color: $container-bg !important;
-}
-.bg-gray{
-	background-color: $body-bg !important;
-}
-.border-top{
-	border-top: 1px solid $border-color;
-}
-.border-bottom{
-	border-bottom: 1px solid $border-color;
-}
-.clear-padding{
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-}
-.clear-left-padding{
-	padding-left: 0 !important;
-}
-.clear-right-padding{
-	padding-right: 0 !important;
-}
-.clear-bottom-padding{
-	padding-bottom: 0 !important;
-}
 
-.text-big{
-	font-size: 1.4em;
-}
-.text-sm{
-	font-size: 85%;
-}
-.distance-top{
-	margin-top: 15px;
-}
-.distance-bottom{
-	margin-bottom: 15px;
-}
-.distance-left{
-	margin-left: 10px;
-}
-.distance-right{
-	margin-right: 10px;
-}
-.padding-bottom{
-	padding-bottom: 15px;
-}
-.dropdown{
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: absolute;
-	z-index: 2;
-	transform: scaleY(0);
-	transform-origin: top;
-	transition: all .3s;
-	box-shadow: 0 3px 3px rgba(0,0,0,0.1);
-	&.active{
-		transform: scaleY(1);
-	}
-}
-.header-bar-selector{
-//	top: $header-bar-height;
-//	z-index: 10;
-	margin-left: -15px;
-	margin-right: -15px;
-}
-dl{
-	@include clearfix;
-	margin-bottom: 0;
-	&.dl-normal{
-		dt:after{
-			content: "";
-		}
-	}
-	dt{
-		float: left;
-		position: relative;
-		font-weight: normal;
-		color: $font-color-gray;
-		i{
-			padding-left: .5em;
-			padding-top: 1em;
-		}
-		&:after{
-			content: ":";
-			position: absolute;
-			line-height: inherit;
-			right: -.3em;
-		}
-	}
-	dd{
-		&:last-child{
-			p{
-				margin-bottom: 0;
-			}
-		}
-	}
-	&.dl-horizontal{
-		dd{
-			&:after{
-				content: " ";
-				display: inline-block;
-			}
-		}
-	}
-	dd{
-		p{
-			&:after{
-				content: " ";
-				display: inline-block;
-			}
-		}
-	}
-}
-.dl-6{
-	dt{
-		width: 90px;
-	}
-	dd{
-		margin-left: 105px;
-	}
-}
-.dl-4{
-	dt{
-		width: 60px;
-	}
-	dd{
-		margin-left: 75px;
-	}
-}
-.dl-2{
-	dt{
-		width: 30px;
-	}
-	dd{
-		margin-left: 45px;
-	}
-}
-
-.form-control{
-	border-radius: 0;
-	height: 40px;
-	&:focus{
-		border-color: $red + 40;
-		box-shadow:  inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 127, 102, 0.6);
-	}
-}
-.btn{
-	border-radius: 0;
-	height: 40px;
-	background-color: $red;
-	border:0;
-	padding-top: 0;
-	padding-bottom: 0;
-	overflow: hidden;
-	&:focus,&:active,&:hover{
-		background-color: ($red - 20) !important;
-		border: 0 !important;
-	}
-}
-.btn-block{
-	background-color: $red;
-	color: #fff;
-	font-size: 16px;
-	text-align: center;
-	line-height: 46px;
-	height: 46px;
-}
 //页头
 .header-bar{
 	height: $header-bar-height;
@@ -311,170 +108,6 @@ dl{
 		animation: progressBar  linear 2s infinite;
 	}
 }
-
-.update-prompt{
-	position: absolute;
-	width: 100%;
-	text-align: center;
-	height: 50px;
-	line-height: 50px;
-	left: 0;
-	z-index: 1;
-	&.update-loading{
-		&:before{
-			content: '';
-			width: 24px;
-			height: 24px;
-			background-image: url(../../../../images/loading.gif);
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin-left: -75px;
-			margin-top: -12px;
-			background-size: 100%;
-		}
-	}
-	&.update-prompt-up{
-		top: 0;
-	}
-	&.update-prompt-down{
-		bottom: 0;
-	}
-}
-.pagination-content{
-	position: relative;
-	z-index: 2;
-}
-
-
-
-//页尾
-.footer-bar {
-	position: absolute;
-	z-index: 1000;
-	left: 0;
-	right:0;
-	bottom:0;
-	height: $footer-bar-height;
-	border-top: 1px solid $border-color;
-//	line-height: $footer-bar-height - 1;
-	background-color: $container-bg;
-}
-.footer-links{
-	display: block;
-	color: inherit;
-	.icon{
-		position: relative;
-		i{
-			position: absolute;
-			width: 5px;
-			height: 5px;
-			top: -1px;
-			right: -3px;
-			border-radius: 50%;
-			background-color: $red;
-		}
-	}
-	&.active{
-		div{
-			color: $red !important;
-		}
-	}
-	&:active{
-		background-color: $touch-active;
-	}
-}
-
-
-.list-group{
-	background-color:$container-bg;
-	overflow: hidden;
-	.list-group-item{
-		padding: 15px 15px;
-		border-bottom: 1px solid $border-color;
-		display: block;
-		color: inherit;
-		position: relative;
-		&:active{
-			background-color: $touch-active;
-		}
-		&:focus{
-			text-decoration: none;
-			outline: none;
-		}
-	}
-
-	.list-group .list-group-item:last-child{
-		border-bottom: none;
-	}
-}
-.list-group-gray{
-	background-color:$body-bg;
-	.list-group-item{
-		&:active{
-			background-color: $body-bg - 10;
-		}
-	}
-}
-
-
-.area-wrap{
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-.back-page{
-	display: block;
-	padding-right: 30px;//加大可点击范围
-}
-.input-group{
-	.input-group-addon{
-		background-color: #fff;
-		border-radius: 0;
-	}
-}
-
-.form-horizontal label{
-	line-height: 40px;
-}
-
-//页面loading动画
-//.loading {
-//	margin: 4em auto;
-//	width: 3em;
-//	height: 2em;
-//	background: linear-gradient(#9b59b6, #9b59b6) 0 50%, linear-gradient(#9b59b6, #9b59b6) 0.625em 50%, linear-gradient(#9b59b6, #9b59b6) 1.25em 50%, linear-gradient(#9b59b6, #9b59b6) 1.875em 50%, linear-gradient(#9b59b6, #9b59b6) 2.5em 50%;
-//	background-repeat: no-repeat;
-//	background-size: 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em;
-//	animation: loading 1.5s linear infinite;
-//}
-//@keyframes loading {
-//	25% {
-//		background: linear-gradient(#3498db, #3498db) 0 50%, linear-gradient(#9b59b6, #9b59b6) 0.625em 50%, linear-gradient(#9b59b6, #9b59b6) 1.25em 50%, linear-gradient(#9b59b6, #9b59b6) 1.875em 50%, linear-gradient(#9b59b6, #9b59b6) 2.5em 50%;
-//		background-repeat: no-repeat;
-//		background-size: 0.5em 2em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em;
-//	}
-//	37.5% {
-//		background: linear-gradient(#9b59b6, #9b59b6) 0 50%, linear-gradient(#3498db, #3498db) 0.625em 50%, linear-gradient(#9b59b6, #9b59b6) 1.25em 50%, linear-gradient(#9b59b6, #9b59b6) 1.875em 50%, linear-gradient(#9b59b6, #9b59b6) 2.5em 50%;
-//		background-repeat: no-repeat;
-//		background-size: 0.5em 0.25em, 0.5em 2em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em;
-//	}
-//	50% {
-//		background: linear-gradient(#9b59b6, #9b59b6) 0 50%, linear-gradient(#9b59b6, #9b59b6) 0.625em 50%, linear-gradient(#3498db, #3498db) 1.25em 50%, linear-gradient(#9b59b6, #9b59b6) 1.875em 50%, linear-gradient(#9b59b6, #9b59b6) 2.5em 50%;
-//		background-repeat: no-repeat;
-//		background-size: 0.5em 0.25em, 0.5em 0.25em, 0.5em 2em, 0.5em 0.25em, 0.5em 0.25em;
-//	}
-//	62.5% {
-//		background: linear-gradient(#9b59b6, #9b59b6) 0 50%, linear-gradient(#9b59b6, #9b59b6) 0.625em 50%, linear-gradient(#9b59b6, #9b59b6) 1.25em 50%, linear-gradient(#3498db, #3498db) 1.875em 50%, linear-gradient(#9b59b6, #9b59b6) 2.5em 50%;
-//		background-repeat: no-repeat;
-//		background-size: 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 2em, 0.5em 0.25em;
-//	}
-//	75% {
-//		background: linear-gradient(#9b59b6, #9b59b6) 0 50%, linear-gradient(#9b59b6, #9b59b6) 0.625em 50%, linear-gradient(#9b59b6, #9b59b6) 1.25em 50%, linear-gradient(#9b59b6, #9b59b6) 1.875em 50%, linear-gradient(#3498db, #3498db) 2.5em 50%;
-//		background-repeat: no-repeat;
-//		background-size: 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 2em;
-//	}
-//}
 
 
 .loading {
@@ -586,15 +219,6 @@ dl{
     100% {
         opacity: 0;
     }
-}
-
-
-.data-empty{
-	padding-top: 58px;
-	text-align: center;
-	img{
-		width: 87px;
-	}
 }
 
 
@@ -721,5 +345,18 @@ dl{
 		box-sizing: content-box;
 	}
 }
+.area-wrap{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: #FFF9EB;
+}
 
+.home-form{
+	background-color: #f4f4f4;
+	box-shadow:  0 .02rem .04rem rgba(0, 0, 0, 0.5);
+	padding: 28px 15px;
+	width: 260px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
