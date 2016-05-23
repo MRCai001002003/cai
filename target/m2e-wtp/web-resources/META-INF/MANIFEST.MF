@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Build-Jdk: 1.6.0_10-rc2
-Built-By: niezhegang
+Build-Jdk: 1.7.0_72
+Built-By: dell
 Created-By: Maven Integration for Eclipse
 
