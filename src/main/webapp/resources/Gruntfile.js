@@ -60,11 +60,10 @@ module.exports = function(grunt) {
                         'ui.router': 'empty:',
                         'angular.animate': 'empty:',
                         'angular.sanitize': 'empty:',
+                        'angular.messages': 'empty:',
                         'angular.validate': 'empty:',
                         'iScroll': 'empty:',
-                        'hammer': 'empty:',
-                        'wxSDK': 'empty:',
-						'd3':'empty:'
+                        'hammer': 'empty:'
                     },
                     shim: {
                         'angular': {
@@ -78,6 +77,7 @@ module.exports = function(grunt) {
                         },
                         'ui.router': ['angular'],
                         'angular.animate': ['angular'],
+                        'angular.messages': ['angular'],
                         'angular.sanitize': ['angular'],
                         'angular.validate': ['angular']
                     },

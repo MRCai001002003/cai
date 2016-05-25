@@ -4,20 +4,23 @@
             <img src="../../resources/images/banner.jpg" alt="" class="img-responsive">
         </div>
         <div class="container-fluid area-wrap">
-            <form class="form-horizontal home-form">
+            <form novalidate form-validated="submit()" name="homeForm" class="form-horizontal home-form">
                 <div class="form-group">
                     <label class="col-xs-4 control-label">借贷金额</label>
                     <div class="col-xs-8">
-                        <div class="input-group">
-                            <input class="form-control" type="text">
-                            <div class="input-group-addon">万元</div>
-                        </div>
+						<select ng-model="params.loanamount" class="form-control">
+							<option value="1">1万</option>
+							<option value="2">2万</option>
+							<option value="3">3万</option>
+							<option value="4">4万</option>
+							<option value="4">5万</option>
+						</select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-4 control-label">借贷期限</label>
                     <div class="col-xs-8">
-                        <select class="form-control" name="" id="">
+                        <select ng-model="params.loanterm" ng-init="params.loanterm='1'" class="form-control">
                             <option value="1">1年</option>
                             <option value="2">2年</option>
                             <option value="3">3年</option>
@@ -26,13 +29,17 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+                <div ng-class="{'has-error':homeForm.phone.$invalid}" class="form-group">
                     <div class="col-xs-12">
-                        <input class="form-control" type="text" placeholder="请输入您的手机号">
+                        <input ng-model="params.cellphone" name="phone" class="form-control" type="text" placeholder="请输入您的手机号" required ng-pattern="/^1[345678]\d{9}$/">
+                        <div ng-messages="homeForm.phone.$error">
+							<div ng-message="required" class="help-block">必填项不能为空</div>
+							<div ng-message="pattern" class="help-block">请输入正确的手机号</div>
+                        </div>
                     </div>
                 </div>
                 <div class="text-center form-group">
-                    <button tap ui-sref="register" type="submit" class="btn btn-primary">快速申请贷款</button>
+                    <button type="submit" class="btn btn-primary">快速申请贷款</button>
                 </div>
             </form>
         </div>

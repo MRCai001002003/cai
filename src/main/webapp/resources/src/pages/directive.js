@@ -15,7 +15,7 @@ define(function(require) {
                 })
             }
         });
-        app.directive('validateForm', function() {
+        app.directive('formValidated', function() {
             return {
                 restrict: 'A',
                 require: '^?form',
@@ -35,7 +35,7 @@ define(function(require) {
                         if (isApply) {
                             $scope.$apply();
                         } else {
-                            $scope.$apply(attrs.validateForm);
+                            $scope.$apply(attrs.formValidated);
                         }
                         return false;
                     })

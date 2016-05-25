@@ -4,11 +4,12 @@ define(function(require) {
     require('ui.router');
     require('angular.animate');
     require('angular.sanitize');
+    require('angular.messages');
 
 
 
     //初始化
-    var app = angular.module("app", ['ui.router', 'ngSanitize', 'ngAnimate']);
+    var app = angular.module("app", ['ui.router', 'ngSanitize', 'ngAnimate','ngMessages']);
     app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
         function($stateProvider, $urlRouterProvider, $httpProvider) {
             //未登录拦截
